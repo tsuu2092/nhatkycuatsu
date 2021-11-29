@@ -41,7 +41,7 @@ const NavBar: FC = () => {
 				display="flex"
 				alignItems="center"
 				ml="auto"
-				href="https://github.com/khaitruong922/gem-tech"
+				href="https://github.com/khaitruong922/gem-blog"
 			>
 				<Icon boxSize="20px" as={FaGithub} />
 			</Link>

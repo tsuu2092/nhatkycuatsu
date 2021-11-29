@@ -1,1 +1,1 @@
-export const APP_NAME = 'GemTech'
+export const APP_NAME = 'GemBlog'
