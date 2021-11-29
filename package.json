@@ -14,10 +14,14 @@
     "axios": "^0.24.0",
     "framer-motion": "^4.1.17",
     "next": "12.0.4",
+    "next-mdx-remote": "^3.0.8",
+    "nextjs-progressbar": "0.0.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
     "remark-parse": "^10.0.1",
     "remark-react": "^9.0.1",
+    "sass": "^1.43.5",
     "unified": "^10.1.1"
   },
   "devDependencies": {

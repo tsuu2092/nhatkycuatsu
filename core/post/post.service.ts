@@ -5,7 +5,9 @@ export const POSTS_ROUTE = '/posts'
 
 export const PostService = {
 	getAll: async () => {
-		const res = await api.get<Post[]>(POSTS_ROUTE)
+		const res = await api.get<Post[]>(POSTS_ROUTE, {
+			params: { _sort: 'created_at:DESC' },
+		})
 		return res.data
 	},
 	getOneBySlug: async (slug: string) => {
