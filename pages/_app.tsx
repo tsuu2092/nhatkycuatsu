@@ -16,11 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<title>{APP_NAME}</title>
 				<link rel="shortcut icon" href={images.logo.circle.src} />
 				<meta property="og:title" content={APP_NAME} key="title" />
+				<meta property="og:image" content={images.banner.src} />
 			</Head>
 			<NextNprogress
 				color="#ecb75d"
 				startPosition={0.5}
-				options={{ easing: 'ease' }}
+				options={{ easing: 'ease', showSpinner: false }}
 			/>
 			<Box minH="100vh">
 				<NavBar />

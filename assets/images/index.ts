@@ -1,5 +1,4 @@
 import blogPlaceholder from './placeholder.png'
-import logo from './logo.png'
 import logoCircle from './logo-circle.png'
 import logoTransparent from './logo-transparent.png'
 import avatar from './avatar.png'
@@ -7,7 +6,6 @@ import avatar from './avatar.png'
 const images = {
 	logo: {
 		transparent: logoTransparent,
-		withBackground: logo,
 		circle: logoCircle,
 	},
 
@@ -15,6 +13,7 @@ const images = {
 		placeholder: blogPlaceholder,
 	},
 	avatar,
+	banner: blogPlaceholder,
 }
 
 export default images

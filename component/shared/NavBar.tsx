@@ -7,8 +7,8 @@ import { APP_NAME } from 'core/common/constants'
 const NavBar: FC = () => {
 	return (
 		<Flex
-			py={4}
-			px={12}
+			py={2}
+			px={8}
 			h="64px"
 			zIndex={10}
 			bgColor="#242424"
@@ -23,14 +23,6 @@ const NavBar: FC = () => {
 					src={images.logo.transparent.src}
 				/>
 			</NextLink>
-			<Link
-				display="flex"
-				alignItems="center"
-				ml="auto"
-				href="https://github.com/khaitruong922/gem-blog"
-			>
-				<Icon boxSize="20px" as={FaGithub} />
-			</Link>
 		</Flex>
 	)
 }

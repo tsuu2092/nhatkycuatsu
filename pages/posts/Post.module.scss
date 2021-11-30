@@ -1,4 +1,6 @@
 .blog {
+	padding: 0.75rem;
+
 	$sectionMarginY: 25px;
 	$headerMarginY: 20px;
 	h1,
@@ -61,5 +63,8 @@
 			margin-left: 20px;
 			padding: 10px;
 		}
+	}
+	a {
+		color: #7700ff;
 	}
 }

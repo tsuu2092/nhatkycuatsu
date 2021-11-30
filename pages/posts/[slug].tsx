@@ -3,12 +3,12 @@ import images from 'assets/images'
 import { Post } from 'core/post/post.entity'
 import { PostService } from 'core/post/post.service'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
 import { ParsedUrlQuery } from 'querystring'
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 import styles from './Post.module.scss'
+
 interface Params extends ParsedUrlQuery {
 	slug: string
 }
@@ -18,6 +18,7 @@ interface Props {
 }
 
 const PostPage: NextPage<Props> = ({ post }) => {
+	if (!post) return <></>
 	const {
 		id,
 		slug,
@@ -28,17 +29,19 @@ const PostPage: NextPage<Props> = ({ post }) => {
 		description,
 		author,
 		tags,
-		mdxSource,
 	} = post
 
 	let { name, avatarUrl } = author || {}
 	name = name || 'Anonymous'
-
 	return (
 		<Box h="100%">
 			<Head>
 				<title>{title}</title>
 				<meta property="og:title" content={`${title}`} key="title" />
+				<meta
+					property="og:image"
+					content={coverUrl ?? images.blog.placeholder.src}
+				/>
 			</Head>
 			<Box
 				bgImage={coverUrl ?? images.blog.placeholder.src}
@@ -56,7 +59,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 					justify="center"
 					width="100%"
 					height="100%"
-					bgColor="blackAlpha.700"
+					bgColor="blackAlpha.800"
 				>
 					<Text
 						fontWeight={600}
@@ -65,7 +68,8 @@ const PostPage: NextPage<Props> = ({ post }) => {
 						fontSize="5xl"
 						textShadow="1px 1px #000000"
 						align="center"
-						noOfLines={1}
+						noOfLines={2}
+						px={4}
 						textOverflow="ellipsis"
 					>
 						{title}
@@ -78,7 +82,8 @@ const PostPage: NextPage<Props> = ({ post }) => {
 						fontSize="xl"
 						textShadow="1px 1px #000000"
 						align="center"
-						noOfLines={1}
+						px={4}
+						noOfLines={2}
 						textOverflow="ellipsis"
 					>
 						{description}
@@ -105,7 +110,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 					</chakra.span>
 				</Text>
 				<chakra.article className={styles.blog} mt={10}>
-					<MDXRemote {...mdxSource} />
+					<ReactMarkdown>{content}</ReactMarkdown>
 				</chakra.article>
 			</Box>
 		</Box>
@@ -126,7 +131,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
 	const { slug } = context.params as Params
 	const post = await PostService.getOneBySlug(slug)
-	post.mdxSource = await serialize(post.content)
 	return {
 		props: { post },
 		revalidate: 60,

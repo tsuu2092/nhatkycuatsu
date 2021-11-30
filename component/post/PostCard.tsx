@@ -40,13 +40,13 @@ const PostCard: React.FC<Props> = ({ post, sizeMultiplier = 1 }) => {
 				<Text noOfLines={2} textOverflow="ellipsis" fontSize="sm">
 					{description}
 				</Text>
-				<Flex align="center" my={2}>
+				<Flex minH="50px" align="center">
 					<Image mr={2} borderRadius="full" boxSize="25px" src={avatarUrl} />
-					<Text textTransform="uppercase" fontWeight="bold" fontSize="sm">
+					<Text fontWeight="bold" fontSize="sm">
 						{name || 'Anonymous'}
 					</Text>
 				</Flex>
-				<Flex mt={2} align="center" overflowX="hidden">
+				<Flex mt={'auto'} align="center" overflowX="hidden">
 					{tags.map((tag) => (
 						<TagCard key={tag.slug} tag={tag} />
 					))}
