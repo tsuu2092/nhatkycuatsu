@@ -10,8 +10,6 @@ const NavBar: FC = () => {
 			py={4}
 			px={12}
 			h="64px"
-			position="sticky"
-			top={0}
 			zIndex={10}
 			bgColor="#242424"
 			color="white"
@@ -25,18 +23,6 @@ const NavBar: FC = () => {
 					src={images.logo.transparent.src}
 				/>
 			</NextLink>
-			<NextLink href="/">
-				<Text
-					cursor="pointer"
-					ml={3}
-					fontWeight={600}
-					fontSize="xl"
-					userSelect="none"
-				>
-					{APP_NAME}
-				</Text>
-			</NextLink>
-
 			<Link
 				display="flex"
 				alignItems="center"

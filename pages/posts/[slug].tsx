@@ -113,7 +113,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const posts = await PostService.getAll()
+	const posts = await PostService.getNewest(10)
 	const paths = posts.map((post) => ({
 		params: { slug: post.slug },
 	}))
@@ -129,6 +129,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 	post.mdxSource = await serialize(post.content)
 	return {
 		props: { post },
+		revalidate: 60,
 	}
 }
 
