@@ -1,4 +1,4 @@
-import { api } from 'core/common/api'
+import { api } from 'common/api'
 import { Post } from './post.entity'
 
 const sortByNewest = 'created_at:DESC'

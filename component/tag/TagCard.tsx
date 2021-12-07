@@ -11,14 +11,15 @@ type Props = {
 const TagCard: React.FC<Props> = ({ tag }) => {
 	const { name, slug } = tag
 	return (
-		<Link href={`tags/${slug}/post`}>
+		<Link href={`/tags/${slug}`}>
 			<Flex
 				borderRadius="md"
 				mr={2}
-				bgColor="#363636"
+				bgColor="#484848"
 				color="white"
 				px={2}
 				py={1}
+				title={name}
 			>
 				<Text fontWeight="bold" fontSize="sm">
 					{name}

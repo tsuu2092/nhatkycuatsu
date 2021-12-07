@@ -6,17 +6,28 @@ import React from 'react'
 import Link from 'next/link'
 import { Tag, TagCloseButton } from '@chakra-ui/tag'
 import TagCard from 'component/tag/TagCard'
+import TopicLink from 'component/topic/TopicLink'
+import { Box } from '@chakra-ui/react'
 type Props = {
 	post: Post
 	sizeMultiplier?: number
 }
 
 const PostCard: React.FC<Props> = ({ post, sizeMultiplier = 1 }) => {
-	const { id, slug, title, created_at, coverUrl, description, author, tags } =
-		post
+	const {
+		id,
+		topic,
+		slug,
+		title,
+		created_at,
+		coverUrl,
+		description,
+		author,
+		tags,
+	} = post
 	const { name, avatarUrl } = author ?? {}
 	return (
-		<Link href={`posts/${slug}`}>
+		<Link href={`/posts/${slug}`}>
 			<Flex
 				title={title}
 				cursor="pointer"
@@ -47,9 +58,12 @@ const PostCard: React.FC<Props> = ({ post, sizeMultiplier = 1 }) => {
 					</Text>
 				</Flex>
 				<Flex mt={'auto'} align="center" overflowX="hidden">
-					{tags.map((tag) => (
+					<Box mr={2}>
+						<TopicLink topic={topic} />
+					</Box>
+					{/* {tags.map((tag) => (
 						<TagCard key={tag.slug} tag={tag} />
-					))}
+					))} */}
 				</Flex>
 			</Flex>
 		</Link>

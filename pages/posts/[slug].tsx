@@ -130,10 +130,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
 	const { slug } = context.params as Params
-	const post = await PostService.getOneBySlug(slug)
-	return {
-		props: { post },
-		revalidate: 60,
+	try {
+		const post = await PostService.getOneBySlug(slug)
+		if (!post) throw 404
+		return {
+			props: { post },
+			revalidate: 60,
+		}
+	} catch (e) {
+		return { notFound: true }
 	}
 }
 
