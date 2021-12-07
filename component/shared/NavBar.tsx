@@ -40,11 +40,17 @@ const NavBar: FC = () => {
 				/>
 			</NextLink>
 			<NextLink href="/">
-				<Text userSelect="none" cursor="pointer" fontWeight={600} mr={8}>
+				<Text
+					fontSize="18px"
+					userSelect="none"
+					cursor="pointer"
+					fontWeight={600}
+					mr={8}
+				>
 					Nhật ký của Tsu
 				</Text>
 			</NextLink>
-			<Flex display={['none', null, 'inherit']}>
+			<Flex fontSize="16px" align="center" display={['none', null, 'inherit']}>
 				<NextLink href="/topics/tech">
 					<Text mx={3} cursor="pointer">
 						Công nghệ
