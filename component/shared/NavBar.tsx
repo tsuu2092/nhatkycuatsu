@@ -73,16 +73,16 @@ const NavBar: FC = () => {
 						/>
 					</MenuButton>
 					<MenuList py={0} border="0px" bgColor="#363636">
-						<MenuItem {...menuItemProps}>
-							<NextLink href="/topics/tech">
+						<NextLink href="/topics/tech">
+							<MenuItem {...menuItemProps}>
 								<Text cursor="pointer">Công nghệ</Text>
-							</NextLink>
-						</MenuItem>
-						<MenuItem {...menuItemProps}>
-							<NextLink href="/topics/life">
+							</MenuItem>
+						</NextLink>
+						<NextLink href="/topics/life">
+							<MenuItem {...menuItemProps}>
 								<Text cursor="pointer">Đời sống</Text>
-							</NextLink>
-						</MenuItem>
+							</MenuItem>
+						</NextLink>
 					</MenuList>
 				</Menu>
 			</Flex>
