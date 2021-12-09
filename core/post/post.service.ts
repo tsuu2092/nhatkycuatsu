@@ -3,7 +3,7 @@ import { Post } from './post.entity'
 
 const sortByNewest = 'created_at:DESC'
 
-export const POSTS_ROUTE = '/posts'
+const POSTS_ROUTE = '/posts'
 
 export const PostService = {
 	getAll: async () => {

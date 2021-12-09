@@ -1,5 +1,5 @@
 import { chakra } from '@chakra-ui/react'
-import { Tag } from 'core/tag/tag.entity'
+import { Routes } from 'common/constants/routes'
 import { Topic } from 'core/topic/topic.entity'
 import Link from 'next/link'
 import React from 'react'
@@ -11,7 +11,7 @@ const TopicLink: React.FC<Props> = ({ topic }) => {
 	if (!topic) return <></>
 	const { name, slug } = topic
 	return (
-		<Link href={`/topics/${slug}`}>
+		<Link href={Routes.getTopicRoute(slug)}>
 			<chakra.span color="#e3a220" title={name} textTransform="uppercase">
 				{name}
 			</chakra.span>

@@ -66,7 +66,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 						fontWeight={600}
 						color="white"
 						w="100%"
-						fontSize="5xl"
+						fontSize={['2xl', '3xl', '4xl', '5xl']}
 						textShadow="1px 1px #000000"
 						align="center"
 						noOfLines={2}
@@ -80,7 +80,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 						fontWeight={500}
 						color="white"
 						w="100%"
-						fontSize="xl"
+						fontSize={['lg', 'lg', 'xl', 'xl']}
 						textShadow="1px 1px #000000"
 						align="center"
 						px={4}
@@ -104,7 +104,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 					border="4px solid white"
 				/>
 			</Box>
-			<Box pb={8} w={['100%', '90%', '80%', '75%']} mx="auto">
+			<Box pb={8} w={['90%', '85%', '80%', '75%']} mx="auto">
 				<Text align="center" fontSize="lg">
 					<chakra.span textTransform="uppercase" fontWeight={700}>
 						{name}

@@ -1,4 +1,5 @@
 import { chakra } from '@chakra-ui/react'
+import { Routes } from 'common/constants/routes'
 import { Tag } from 'core/tag/tag.entity'
 import Link from 'next/link'
 import React from 'react'
@@ -9,7 +10,7 @@ type Props = {
 const TagLink: React.FC<Props> = ({ tag }) => {
 	const { name, slug } = tag
 	return (
-		<Link href={`/tag/${slug}`}>
+		<Link href={Routes.getTagRoute(slug)}>
 			<chakra.span cursor="pointer" textDecoration="underline">
 				{name}
 			</chakra.span>

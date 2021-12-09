@@ -10,6 +10,7 @@ import {
 	Text,
 } from '@chakra-ui/react'
 import images from 'assets/images'
+import { Routes } from 'common/constants/routes'
 import NextLink from 'next/link'
 import React, { FC } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
@@ -51,12 +52,12 @@ const NavBar: FC = () => {
 				</Text>
 			</NextLink>
 			<Flex fontSize="16px" align="center" display={['none', null, 'inherit']}>
-				<NextLink href="/topics/tech">
+				<NextLink href={Routes.getTopicRoute('tech')}>
 					<Text mx={3} cursor="pointer">
 						Công nghệ
 					</Text>
 				</NextLink>
-				<NextLink href="/topics/life">
+				<NextLink href={Routes.getTopicRoute('life')}>
 					<Text mx={3} cursor="pointer">
 						Đời sống
 					</Text>
@@ -73,12 +74,12 @@ const NavBar: FC = () => {
 						/>
 					</MenuButton>
 					<MenuList py={0} border="0px" bgColor="#363636">
-						<NextLink href="/topics/tech">
+						<NextLink href={Routes.getTopicRoute('tech')}>
 							<MenuItem {...menuItemProps}>
 								<Text cursor="pointer">Công nghệ</Text>
 							</MenuItem>
 						</NextLink>
-						<NextLink href="/topics/life">
+						<NextLink href={Routes.getTopicRoute('life')}>
 							<MenuItem {...menuItemProps}>
 								<Text cursor="pointer">Đời sống</Text>
 							</MenuItem>

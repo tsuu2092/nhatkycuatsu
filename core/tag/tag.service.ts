@@ -1,7 +1,7 @@
 import { api } from 'common/api'
 import { Tag } from './tag.entity'
 
-export const TAGS_ROUTE = '/tags'
+const TAGS_ROUTE = '/tags'
 
 export const TagService = {
 	getAll: async () => {

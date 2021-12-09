@@ -2,6 +2,7 @@ import { Image } from '@chakra-ui/image'
 import { AspectRatio, Box, Flex, Text } from '@chakra-ui/layout'
 import { chakra } from '@chakra-ui/react'
 import images from 'assets/images'
+import { Routes } from 'common/constants/routes'
 import TopicLink from 'component/topic/TopicLink'
 import { Post } from 'core/post/post.entity'
 import Link from 'next/link'
@@ -24,7 +25,7 @@ const PostCard: React.FC<Props> = ({ post }) => {
 	} = post
 	const { name, avatarUrl } = author ?? {}
 	return (
-		<Link href={`/post/${slug}`}>
+		<Link href={Routes.getPostRoute(slug)}>
 			<Flex
 				title={title}
 				cursor="pointer"
@@ -61,7 +62,9 @@ const PostCard: React.FC<Props> = ({ post }) => {
 							<chakra.span mx={1}>•</chakra.span>
 							{new Date(created_at).toLocaleDateString()}
 							<chakra.span mx={1}>•</chakra.span>
-							{minsRead} MIN READ
+							<chakra.span textTransform="uppercase">
+								{minsRead} min{minsRead !== 1 && 's'} read
+							</chakra.span>
 						</Text>
 					</Flex>
 				</Box>
