@@ -1,4 +1,5 @@
 import { Box, Text } from '@chakra-ui/react'
+import { APP_NAME } from 'common/constants'
 import PostList from 'component/post/PostList'
 import { Topic } from 'core/topic/topic.entity'
 import { TopicService } from 'core/topic/topic.service'
@@ -17,11 +18,12 @@ interface Props {
 
 const TagPage: NextPage<Props> = ({ topic }) => {
 	const { posts, name } = topic
+	const headTitle = `${name} - ${APP_NAME}`
 	return (
 		<Box h="100%" mx="auto" w={['100%', '90%', '80%', '75%']} px={4} py={12}>
 			<Head>
-				<title>{name}</title>
-				<meta property="og:description" content={name} key="description" />
+				<title>{headTitle}</title>
+				<meta property="og:title" content={headTitle} key="title" />
 			</Head>
 			<Text textAlign="center" fontWeight={600} fontSize="4xl" mb={4}>
 				{name}
