@@ -3,6 +3,7 @@ import PostList from 'component/post/PostList'
 import { Tag } from 'core/tag/tag.entity'
 import { TagService } from 'core/tag/tag.service'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 import { ParsedUrlQuery } from 'querystring'
 import React from 'react'
 
@@ -18,6 +19,10 @@ const TagPage: NextPage<Props> = ({ tag }) => {
 	const { posts, name } = tag
 	return (
 		<Box h="100%" mx="auto" w={['100%', '90%', '80%', '75%']} px={4} py={12}>
+			<Head>
+				<title>{name}</title>
+				<meta property="og:description" content={name} key="description" />
+			</Head>
 			<Text fontWeight={600} fontSize="2xl" mb={2}>
 				{name}
 			</Text>

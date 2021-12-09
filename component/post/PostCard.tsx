@@ -40,6 +40,7 @@ const PostCard: React.FC<Props> = ({ post }) => {
 						objectFit="cover"
 						src={coverUrl}
 						fallbackSrc={images.blog.placeholder.src}
+						alt={title}
 					></Image>
 				</AspectRatio>
 

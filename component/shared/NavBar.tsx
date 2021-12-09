@@ -10,6 +10,7 @@ import {
 	Text,
 } from '@chakra-ui/react'
 import images from 'assets/images'
+import { APP_NAME } from 'common/constants'
 import { Routes } from 'common/constants/routes'
 import NextLink from 'next/link'
 import React, { FC } from 'react'
@@ -38,6 +39,7 @@ const NavBar: FC = () => {
 					mt={0.5}
 					h="100%"
 					src={images.logo.transparent.src}
+					alt={APP_NAME}
 				/>
 			</NextLink>
 			<NextLink href="/">

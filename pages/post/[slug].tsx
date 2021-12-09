@@ -32,8 +32,8 @@ const PostPage: NextPage<Props> = ({ post }) => {
 		tags,
 	} = post
 
-	let { name, avatarUrl } = author || {}
-	name = name || 'Anonymous'
+	let { name: authorName, avatarUrl } = author || {}
+	authorName = authorName || 'Anonymous'
 	return (
 		<Box h="100%">
 			<Head>
@@ -42,6 +42,12 @@ const PostPage: NextPage<Props> = ({ post }) => {
 				<meta
 					property="og:image"
 					content={coverUrl ?? images.blog.placeholder.src}
+					key="image"
+				/>
+				<meta
+					property="og:description"
+					content={description}
+					key="description"
 				/>
 			</Head>
 			<Box
@@ -94,6 +100,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 					borderRadius="full"
 					src={avatarUrl}
 					fallbackSrc={images.avatar.src}
+					alt={authorName}
 					position="absolute"
 					boxSize="150px"
 					left="0"
@@ -107,7 +114,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 			<Box pb={8} w={['90%', '85%', '80%', '75%']} mx="auto">
 				<Text align="center" fontSize="lg">
 					<chakra.span textTransform="uppercase" fontWeight={700}>
-						{name}
+						{authorName}
 					</chakra.span>
 				</Text>
 				<chakra.article className={styles.blog} mt={10}>

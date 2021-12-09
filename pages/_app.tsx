@@ -16,7 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<title>{APP_NAME}</title>
 				<link rel="shortcut icon" href={images.logo.circle.src} />
 				<meta property="og:title" content={APP_NAME} key="title" />
-				<meta property="og:image" content={images.banner.src} />
+				<meta property="og:image" content={images.banner.src} key="image" />
+				<meta
+					property="og:description"
+					content="Nơi lưu giữ những ký ức thường nhật"
+					key="description"
+				/>
 			</Head>
 			<NextNprogress
 				color="#ecb75d"
