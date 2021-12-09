@@ -1,11 +1,12 @@
 import { Box, chakra, Flex, Image, Text } from '@chakra-ui/react'
 import images from 'assets/images'
+import TagLink from 'component/tag/TagLink'
 import { Post } from 'core/post/post.entity'
 import { PostService } from 'core/post/post.service'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { ParsedUrlQuery } from 'querystring'
-import React from 'react'
+import React, { Fragment } from 'react'
 import ReactMarkdown from 'react-markdown'
 import styles from './Post.module.scss'
 
@@ -103,7 +104,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 					border="4px solid white"
 				/>
 			</Box>
-			<Box w={['100%', '90%', '80%', '75%']} mx="auto">
+			<Box pb={8} w={['100%', '90%', '80%', '75%']} mx="auto">
 				<Text align="center" fontSize="lg">
 					<chakra.span textTransform="uppercase" fontWeight={700}>
 						{name}
@@ -112,6 +113,15 @@ const PostPage: NextPage<Props> = ({ post }) => {
 				<chakra.article className={styles.blog} mt={10}>
 					<ReactMarkdown>{content}</ReactMarkdown>
 				</chakra.article>
+				<Text fontSize="lg">
+					<chakra.span fontWeight={600}>Tags</chakra.span>:{' '}
+					{tags.map((tag, i) => (
+						<chakra.span fontSize="lg" key={i}>
+							{i > 0 && ', '}
+							<TagLink tag={tag} />
+						</chakra.span>
+					))}
+				</Text>
 			</Box>
 		</Box>
 	)

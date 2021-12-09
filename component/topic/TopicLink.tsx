@@ -1,8 +1,8 @@
-import { Text } from '@chakra-ui/layout'
+import { chakra } from '@chakra-ui/react'
+import { Tag } from 'core/tag/tag.entity'
 import { Topic } from 'core/topic/topic.entity'
 import Link from 'next/link'
 import React from 'react'
-
 type Props = {
 	topic?: Topic
 }
@@ -12,15 +12,9 @@ const TopicLink: React.FC<Props> = ({ topic }) => {
 	const { name, slug } = topic
 	return (
 		<Link href={`/topics/${slug}`}>
-			<Text
-				title={name}
-				fontWeight={600}
-				fontSize="sm"
-				color="#555555"
-				textTransform="uppercase"
-			>
+			<chakra.span color="#e3a220" title={name} textTransform="uppercase">
 				{name}
-			</Text>
+			</chakra.span>
 		</Link>
 	)
 }

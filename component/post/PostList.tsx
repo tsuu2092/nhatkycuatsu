@@ -1,12 +1,6 @@
-import { Image, Img } from '@chakra-ui/image'
-import { AspectRatio, Flex, Text } from '@chakra-ui/layout'
-import images from 'assets/images'
+import { GridItem, SimpleGrid } from '@chakra-ui/react'
 import { Post } from 'core/post/post.entity'
 import React from 'react'
-import Link from 'next/link'
-import { Tag, TagCloseButton } from '@chakra-ui/tag'
-import TagCard from 'component/tag/TagCard'
-import { SimpleGrid, GridItem } from '@chakra-ui/react'
 import PostCard from './PostCard'
 
 type Props = {

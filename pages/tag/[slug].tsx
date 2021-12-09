@@ -19,7 +19,7 @@ const TagPage: NextPage<Props> = ({ tag }) => {
 	return (
 		<Box h="100%" mx="auto" w={['100%', '90%', '80%', '75%']} px={4} py={12}>
 			<Text fontWeight={600} fontSize="2xl" mb={2}>
-				Tag: {name}
+				{name}
 			</Text>
 			<PostList posts={posts} />
 		</Box>

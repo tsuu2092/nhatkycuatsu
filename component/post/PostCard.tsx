@@ -1,21 +1,18 @@
-import { Image, Img } from '@chakra-ui/image'
-import { AspectRatio, Flex, Text } from '@chakra-ui/layout'
+import { Image } from '@chakra-ui/image'
+import { AspectRatio, Box, Flex, Text } from '@chakra-ui/layout'
+import { chakra } from '@chakra-ui/react'
 import images from 'assets/images'
-import { Post } from 'core/post/post.entity'
-import React from 'react'
-import Link from 'next/link'
-import { Tag, TagCloseButton } from '@chakra-ui/tag'
-import TagCard from 'component/tag/TagCard'
 import TopicLink from 'component/topic/TopicLink'
-import { Box } from '@chakra-ui/react'
+import { Post } from 'core/post/post.entity'
+import Link from 'next/link'
+import React from 'react'
 type Props = {
 	post: Post
 	sizeMultiplier?: number
 }
 
-const PostCard: React.FC<Props> = ({ post, sizeMultiplier = 1 }) => {
+const PostCard: React.FC<Props> = ({ post }) => {
 	const {
-		id,
 		topic,
 		slug,
 		title,
@@ -23,11 +20,11 @@ const PostCard: React.FC<Props> = ({ post, sizeMultiplier = 1 }) => {
 		coverUrl,
 		description,
 		author,
-		tags,
+		minsRead = 5,
 	} = post
 	const { name, avatarUrl } = author ?? {}
 	return (
-		<Link href={`/posts/${slug}`}>
+		<Link href={`/post/${slug}`}>
 			<Flex
 				title={title}
 				cursor="pointer"
@@ -45,26 +42,32 @@ const PostCard: React.FC<Props> = ({ post, sizeMultiplier = 1 }) => {
 					></Image>
 				</AspectRatio>
 
-				<Text fontWeight={600} mt={2} fontSize="xl">
+				<Text fontWeight={600} mt={2} fontSize="lg">
 					{title}
 				</Text>
 				<Text noOfLines={2} textOverflow="ellipsis" fontSize="sm">
 					{description}
 				</Text>
-				<Flex minH="50px" align="center">
-					<Image mr={2} borderRadius="full" boxSize="25px" src={avatarUrl} />
-					<Text fontWeight="bold" fontSize="sm">
-						{name || 'Anonymous'}
-					</Text>
-				</Flex>
-				<Flex mt={'auto'} align="center" overflowX="hidden">
-					<Box mr={2}>
-						<TopicLink topic={topic} />
-					</Box>
-					{/* {tags.map((tag) => (
+				<Box mt="auto">
+					<Flex my={2} align="center">
+						<Image mr={2} borderRadius="full" boxSize="25px" src={avatarUrl} />
+						<Text fontWeight="bold" fontSize="sm">
+							{name || 'Anonymous'}
+						</Text>
+					</Flex>
+					<Flex align="center">
+						<Text fontSize="sm" fontWeight={600} color="#555555">
+							<TopicLink topic={topic} />
+							<chakra.span mx={1}>•</chakra.span>
+							{new Date(created_at).toLocaleDateString()}
+							<chakra.span mx={1}>•</chakra.span>
+							{minsRead} MIN READ
+						</Text>
+					</Flex>
+				</Box>
+				{/* {tags.map((tag) => (
 						<TagCard key={tag.slug} tag={tag} />
 					))} */}
-				</Flex>
 			</Flex>
 		</Link>
 	)

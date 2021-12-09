@@ -10,6 +10,7 @@ export interface Post {
 	created_at: string
 	content: string
 	coverUrl?: string
+	minsRead?: number
 	author?: Author
 	topic?: Topic
 	tags: Tag[]
