@@ -13,16 +13,9 @@ type Props = {
 }
 
 const PostCard: React.FC<Props> = ({ post }) => {
-	const {
-		topic,
-		slug,
-		title,
-		created_at,
-		coverUrl,
-		description,
-		author,
-		minsRead = 5,
-	} = post
+	const { topic, slug, title, created_at, coverUrl, description, author } = post
+	let { minsRead } = post
+	minsRead = minsRead || 5
 	const { name, avatarUrl } = author ?? {}
 	return (
 		<Link href={Routes.getPostRoute(slug)}>
