@@ -37,12 +37,12 @@ const Footer: FC = () => {
 			</Text>
 			<Flex>
 				<SocialIcon
-					href="https://www.facebook.com/khaitruong922/"
+					href="https://www.facebook.com/tsuu2092/"
 					icon={FaFacebook}
 				/>
 				<SocialIcon href="https://www.youtube.com/Tsuu2092" icon={FaYoutube} />
 				<SocialIcon
-					href="https://www.github.com/khaitruong922/"
+					href="https://www.github.com/tsuu2092/"
 					icon={FaGithub}
 				/>
 				<SocialIcon
